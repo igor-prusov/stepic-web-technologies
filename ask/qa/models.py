@@ -7,12 +7,25 @@ class Question(models.Model):
     text = models.TextField()
     added_at = models.DateField()
     rating = models.IntegerField()
-    author = models.OneToOneField(User)
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     likes = models.ManyToManyField(User)
 
+
+class QuestionManger(models.Manager):
+    def new(self):
+        result = []
+        for question in Questions.objects.latest('added_at'):
+            result.append(question)
+        return result
+
+    def popular(self):
+        result = []
+        for question in Questions.objects.order_by('rating'):
+            result.append(question)
+        return result
 
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateField()
     question = models.ForeignKey(Question, null=True, on_delete=models.SET_NULL)
-    author = models.OneToOneField(User)
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
