@@ -8,7 +8,7 @@ class Question(models.Model):
     added_at = models.DateField()
     rating = models.IntegerField()
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-    likes = models.ManyToManyField(User)
+    likes = models.ManyToManyField(User, related_name='question_like_user')
 
 
 class QuestionManger(models.Manager):
