@@ -59,8 +59,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'qa',
-	'USER': 'admin',
-	'PASSWORD': 'qwerty',
+	'USER': 'ask-django',
+	'PASSWORD': '123',
     }
 }
 
