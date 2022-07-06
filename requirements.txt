@@ -4,7 +4,7 @@ argparse==1.2.1
 chardet==2.1.1
 colorama==0.2.5
 gunicorn==17.5
-html5lib==0.999
+html5lib==0.999999999
 requests==2.2.1
 six==1.5.2
 urllib3==1.7.1
